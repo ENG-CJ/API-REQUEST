@@ -17,9 +17,9 @@ Waxaa Jira website bixiya API FREEE AH without tookens wax KEY kaagama bahna, so
 ✔ [https://www.randomuser.me]
 
 # RANDOMUSER.ME API
-```js
-
-Request [{
+Request -
+```
+[{
  url : "https://www.randomuser.me",
  results : 5
 }];
