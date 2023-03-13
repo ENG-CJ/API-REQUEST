@@ -27,6 +27,8 @@ Request [{
 ```
 
 Response - 
+```
+
 {
   "results": [
     {
@@ -94,6 +96,8 @@ Response -
   }
 }
 
+
+```
 
 # More Documentation
 https://randomuser.me/documentation
