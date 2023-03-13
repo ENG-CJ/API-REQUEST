@@ -14,15 +14,23 @@ intaas iyo kabadan waaye lkn afartaas ayaa zaa'id loo isticmaalaa
 
 # For practicals
 Waxaa Jira website bixiya API FREEE AH without tookens wax KEY kaagama bahna, so website lik-giisa waaa kan<br>
-✔ [https://www.randomuser.me]
+✔ [https://www.randomuser.me] <br>
+API LINK : [https://randomuser.me/api/]
+
 
 # RANDOMUSER.ME API
 Request -
 ```
-[{
- url : "https://www.randomuser.me",
- results : 5
-}];
+const Request=()=>{
+   $.ajax({
+    url : "https://randomuser.me/api/?results=5",
+    dataType: "JSON",
+    success: (response)=>{
+      console.log(response)
+    }
+   })
+
+}
 
 ```
 
