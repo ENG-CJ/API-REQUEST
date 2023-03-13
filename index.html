@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="./OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-group">
+        <button type="button" class="load loadClick">Request😊</button>
+      </div>
+      <div class="card owl-carousel">
+
+      </div>
+    </div>
+
+    <script src="./jquery-3.3.1.min.js"></script>
+    <script src="./OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script>
+      $(document).ready(function () {
+
+        const ApiRequest=()=>{
+
+            fetch("https://randomuser.me/api/?results=15")
+            .then((data)=>data.json())
+            .then((result)=>{
+                console.log(result)
+
+                result.results.forEach((values)=>{
+
+                   $(".card").append(`
+                   <div class="user-card">
+          <div class="user-content">
+            <div class="header">
+              <div class="img">
+                <img src="${values.picture.medium}" class="user-image" alt="" />
+              </div>
+              <h3 class="title">
+               ${values.name.title},${values.name.first}
+              </h3>
+              <span class="gender"> Gender - ${values.gender}</span>
+              <hr class="hr" />
+            </div>
+            <div class="body">
+              <div class="form-group">
+                <p>
+                  <strong>Email :</strong>
+                  <span class="email">${values.email}</span>
+                </p>
+              </div>
+              <div class="form-group">
+                <p><strong>Mobile :</strong><span>${values.phone}</span></p>
+              </div>
+              <div class="form-group">
+                <p>
+                  <strong>country :</strong>
+                  <span>${values.location.country}</span>
+                </p>
+              </div>
+              <div class="form-group">
+                <p>
+                  <strong>City :</strong> <span>${values.location.city}</span>
+                </p>
+              </div>
+              <div class="form-group">
+                <button class="btn">View More</button>
+              </div>
+            </div>
+          </div>
+        </div>
+                   
+                   
+                   `)
+                })
+                $(".owl-carousel").owlCarousel();
+            })
+            .catch((error)=>console.log(error))
+
+
+
+        }
+        ApiRequest();
+$(document).click(".loadClick",function() {
+    ApiRequest()
+})
+
+
+
+    
+      });
+    </script>
+  </body>
+</html>
